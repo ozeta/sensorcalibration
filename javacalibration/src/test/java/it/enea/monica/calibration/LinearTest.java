@@ -55,6 +55,13 @@ public class LinearTest {
         o3List = new ArrayList<Double[]>();
         test = new ArrayList<Double[]>();
 
+        buildArrays();
+        linear = CalibrationFactory.getLinearCalibration(getJsonObject("./res/calib_table/linear_calibration.json"));
+
+    }
+
+    private void buildArrays() {
+
         coList.add(new Double[]{15.8d, 377.956d, 283.423d, 306d, 281d});
         coList.add(new Double[]{15.5d, 401.634d, 255.287d, 306d, 281d});
         coList.add(new Double[]{15.3d, 388.697d, 265.799d, 306d, 281d});
@@ -219,8 +226,6 @@ public class LinearTest {
         test.add(new Double[]{19.29999924d, 324.229d, 275.247d, 338.6d, 242.2d});
         test.add(new Double[]{19.29999924d, 324.229d, 275.247d, 338.6d, 242.2d});
 
-        linear = CalibrationFactory.getLinearCalibration(getJsonObject("./res/calib_table/linear_calibration.json"));
-
     }
 
     @Test
@@ -230,7 +235,7 @@ public class LinearTest {
                 Double[] co = coList.get(i);
                 Double[] no2 = no2List.get(i);
                 Double[] o3 = o3List.get(i);
-                ICalibration.Triple a = linear.test(co, no2,o3, "20000033");
+                ICalibration.Triple a = linear.test(co, no2, o3, "20000033");
                 System.out.println(a);
             }
         } catch (AQNotFoundException | InvalidInputException | MapNotFound e) {
@@ -238,6 +243,7 @@ public class LinearTest {
         }
 
     }
+
     @Test
     public void testLinearCOTESTWithAFE20000033() {
         try {
@@ -251,6 +257,7 @@ public class LinearTest {
         }
 
     }
+
     @Test
     public void testLinearCOWithAFE20000033() {
         try {
@@ -312,6 +319,7 @@ public class LinearTest {
             mapNotFound.printStackTrace();
         }
     }
+
     /**
      * CO
      */

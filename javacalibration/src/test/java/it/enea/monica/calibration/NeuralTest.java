@@ -113,7 +113,7 @@ public class NeuralTest {
 
     @Test
     public void neuralTestMono() throws InvalidInputException {
-        neuralCalibration = CalibrationFactory.getNeuralCalibration(getJsonObject("./res/calib_table/co_weight_cell.json"));
+        neuralCalibration = CalibrationFactory.getMonoNeuralCalibration(getJsonObject("./res/calib_table/co_weight_cell.json"));
 
         for (Double[] doub : mono) {
             try {

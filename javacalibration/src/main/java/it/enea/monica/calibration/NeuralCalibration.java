@@ -19,12 +19,20 @@ public class NeuralCalibration implements ICalibration{
     private final JSONObject no2Calib;
     private final JSONObject o3Calib;
 
+    /**
+     * Calibration for [Temp, we co, ae ] co network
+     * @param co_calib
+     */
     public NeuralCalibration(JSONObject co_calib) {
         this.coCalib = co_calib;
         this.no2Calib = null;
         this.o3Calib = null;
     }
 
+    /**
+     * Calibration for [Temp, we co, ae co, we no2, ae no2, we o3, ae o3] network
+     * @param co_calib
+     */
     public NeuralCalibration(JSONObject co_calib, JSONObject no2_calib, JSONObject o3_calib) {
         this.coCalib = co_calib;
         this.no2Calib = no2_calib;
@@ -40,6 +48,7 @@ public class NeuralCalibration implements ICalibration{
     }
 
     /**
+     * used for estimation of CO (temp, we co, ae co only)
      * @param px1 px[0] = temperatura
      *            px[1] = we co
      *            px[2] = ae co
@@ -170,6 +179,11 @@ public class NeuralCalibration implements ICalibration{
 
     boolean setupready = false;
 
+    /**
+     * parses the json file into the NN weights
+     * @param jx1_step1
+     * @return
+     */
     @SuppressWarnings("Duplicates")
     private Nnconstant parseStep1(JSONObject jx1_step1) {
         Nnconstant nn1 = new Nnconstant();
@@ -202,7 +216,11 @@ public class NeuralCalibration implements ICalibration{
         return nn1;
     }
 
-
+    /**
+     * parses the json fileinto the NN weights
+     * @param obj
+     * @return
+     */
     @SuppressWarnings("Duplicates")
     private DoubleMatrix parseWeight(Object obj) {
         DoubleMatrix res = null;

@@ -6,9 +6,15 @@ import it.enea.monica.calibration.exception.MapNotFound;
 
 /**
  * Created by ozeta on 17/11/2017.
+ *
+ * Standard interface for sensor calibrator
  */
 
 public interface ICalibration {
+
+    /**
+     * Builtin class for Triple retrival
+     */
     public class Triple {
         Double co;
         Double no2;
@@ -39,6 +45,17 @@ public interface ICalibration {
         }
     }
 
+    /**
+     * each array contains the following fields: [temperature, we electrode, ae electrode , we zero electrode, ae zero electrode]
+     * @param coInput
+     * @param no2Input
+     * @param o3Input
+     * @param afe
+     * @return the Triple containg the 3 estimations.
+     * @throws InvalidInputException
+     * @throws AQNotFoundException if afe string is not found into configuration json file
+     * @throws MapNotFound
+     */
     Triple test(Double[] coInput, Double[] no2Input, Double[] o3Input, String afe) throws InvalidInputException, AQNotFoundException, MapNotFound;
 
     Double testCO(Double[] px1, String afe) throws InvalidInputException, AQNotFoundException, MapNotFound;
