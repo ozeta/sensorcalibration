@@ -9,8 +9,7 @@ The library contains 2 estimators:
 The library incluses a StringParser class, an utility used to parse the output of the E-nose.
 
 
-![Class Diagram](https://raw.githubusercontent.com/ozeta/sensorcalibration/master/img/jcalib.svg)
-
+![Class Diagram](/img/index.png)
 
 A factory class is used to allocate a new estimator.
 The new estimator reads specific E-Noses settings from a json text file for an easy setup of new/old devices.
