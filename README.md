@@ -7,7 +7,11 @@ The library contains 2 estimators:
 - Neural network generated calibration
 
 The library incluses a StringParser class, an utility used to parse the output of the E-nose.
-![Class Diagram](ozeta.github.com/sensorcalibration/img/jcalib.svg)
+
+
+![Class Diagram](https://raw.githubusercontent.com/ozeta/sensorcalibration/master/img/jcalib.svg)
+
+
 A factory class is used to allocate a new estimator.
 The new estimator reads specific E-Noses settings from a json text file for an easy setup of new/old devices.
 The core of the library is based on 2 classes: LinearCalibration, NeuralCalibration, with a common interface for use ICalibration
